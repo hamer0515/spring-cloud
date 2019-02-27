@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -ex
+
+skipTest=true
+
+for module in `find ../* -maxdepth 0 -type d -print | grep -v "../[.|bin|]"`; do
+    echo Prepare to build module: ${module#*/}
+    mvn clean package dockerfile:build -D maven.test.skip=$skipTest -f $module
+done

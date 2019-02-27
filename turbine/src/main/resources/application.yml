@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: turbine
+
+server:
+  port: 8080
+
+management:
+  server:
+    port: 9090
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+    register-with-eureka: false
+
+turbine:
+  aggregator:
+    cluster-config:
+      - RIBBON-CONSUMER
+  app-config: RIBBON-CONSUMER
+  combine-host-port: true
