@@ -1,4 +1,4 @@
-package com.hbox.spring.cloud.consumer.service;
+package com.hbox.spring.cloud.ribbonconsumer.service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;

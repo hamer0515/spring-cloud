@@ -1,11 +1,10 @@
-package com.hbox.spring.cloud.consumer.controller;
+package com.hbox.spring.cloud.ribbonconsumer.controller;
 
-import com.hbox.spring.cloud.consumer.service.HelloService;
+import com.hbox.spring.cloud.ribbonconsumer.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class ConsumerController {
