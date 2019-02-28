@@ -14,29 +14,67 @@ services:
     image: hbox/hello-service:0.0.1-SNAPSHOT
     command: "--eureka.client.serviceUrl.defaultZone=http://eureka-server1:1111/eureka/,http://eureka-server2:1111/eureka/"
     ports:
-        - "8081:8080"
+      - "1121:8080"
+    depends_on:
+      - eureka-server1
+      - eureka-server2
   hello-service2:
     image: hbox/hello-service:0.0.1-SNAPSHOT
     command: "--eureka.client.serviceUrl.defaultZone=http://eureka-server1:1111/eureka/,http://eureka-server2:1111/eureka/"
     ports:
-      - "8082:8080"
-  ribbon-consumer1:
-    image: hbox/ribbon-consumer:0.0.1-SNAPSHOT
+      - "1122:8080"
+    depends_on:
+      - eureka-server1
+      - eureka-server2
+#  ribbon-consumer1:
+#    image: hbox/ribbon-consumer:0.0.1-SNAPSHOT
+#    command: "--eureka.client.serviceUrl.defaultZone=http://eureka-server1:1111/eureka/,http://eureka-server2:1111/eureka/"
+#    ports:
+#      - "1131:8080"
+#  ribbon-consumer2:
+#    image: hbox/ribbon-consumer:0.0.1-SNAPSHOT
+#    command: "--eureka.client.serviceUrl.defaultZone=http://eureka-server1:1111/eureka/,http://eureka-server2:1111/eureka/"
+#    ports:
+#      - "1132:8080"
+  feign-consumer1:
+    image: hbox/feign-consumer:0.0.1-SNAPSHOT
     command: "--eureka.client.serviceUrl.defaultZone=http://eureka-server1:1111/eureka/,http://eureka-server2:1111/eureka/"
     ports:
-      - "9001:8080"
-  ribbon-consumer2:
-    image: hbox/ribbon-consumer:0.0.1-SNAPSHOT
+      - "1141:8080"
+    depends_on:
+      - eureka-server1
+      - eureka-server2
+      - hello-service1
+      - hello-service2
+  feign-consumer2:
+    image: hbox/feign-consumer:0.0.1-SNAPSHOT
     command: "--eureka.client.serviceUrl.defaultZone=http://eureka-server1:1111/eureka/,http://eureka-server2:1111/eureka/"
     ports:
-      - "9002:8080"
-  turbine:
-    image: hbox/turbine:0.0.1-SNAPSHOT
+      - "1142:8080"
+    depends_on:
+      - eureka-server1
+      - eureka-server2
+      - hello-service1
+      - hello-service2
+#  turbine:
+#    image: hbox/turbine:0.0.1-SNAPSHOT
+#    command: "--eureka.client.serviceUrl.defaultZone=http://eureka-server1:1111/eureka/,http://eureka-server2:1111/eureka/"
+#    ports:
+#      - "1151:8080"
+#      - "1152:9090"
+#  hystrix-dashboard:
+#    image: hbox/hystrix-dashboard:0.0.1-SNAPSHOT
+#    ports:
+#      - "1161:8080"
+  api-gateway:
+    image: hbox/api-gateway:0.0.1-SNAPSHOT
     command: "--eureka.client.serviceUrl.defaultZone=http://eureka-server1:1111/eureka/,http://eureka-server2:1111/eureka/"
     ports:
-      - "2001:8080"
-      - "2002:9090"
-  hystrix-dashboard:
-    image: hbox/hystrix-dashboard:0.0.1-SNAPSHOT
-    ports:
-      - "2000:8080"
+      - "1171:8080"
+    depends_on:
+      - eureka-server1
+      - eureka-server2
+      - hello-service1
+      - hello-service2
+      - feign-consumer1
+      - feign-consumer2
