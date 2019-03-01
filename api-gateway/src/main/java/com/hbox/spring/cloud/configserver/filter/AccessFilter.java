@@ -1,12 +1,14 @@
-package com.hbox.spring.cloud.apigateway.filter;
+package com.hbox.spring.cloud.configserver.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 
+@Component
 public class AccessFilter extends ZuulFilter {
 
     private static Logger logger = LoggerFactory.getLogger(AccessFilter.class);

@@ -1,4 +1,4 @@
-package com.hbox.spring.cloud.apigateway.service.v1;
+package com.hbox.spring.cloud.configserver.service.v1;
 
 import com.hbox.spring.cloud.helloservice.service.v1.RefactorHelloService;
 import org.springframework.cloud.openfeign.FeignClient;

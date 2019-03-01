@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -e
+
+skipTest=true
+
+basePath=$(cd `dirname $0`; pwd)
+
+echo $basePath
+
+cd $basePath/../
+
+for module in `find . -maxdepth 1 -mindepth 1 -type d -print`; do
+    if [ -f "$module/pom.xml" ]; then
+        echo Build module: ${module#*/}
+        mvn clean package install dockerfile:build -Dmaven.test.skip=$skipTest -f $module
+    fi
+done

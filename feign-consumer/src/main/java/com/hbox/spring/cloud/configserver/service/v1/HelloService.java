@@ -1,6 +1,6 @@
-package com.hbox.spring.cloud.apigateway.service.v1;
+package com.hbox.spring.cloud.configserver.service.v1;
 
-import com.hbox.spring.cloud.apigateway.service.v1.fallback.HelloServiceFallback;
+import com.hbox.spring.cloud.configserver.service.v1.fallback.HelloServiceFallback;
 import com.hbox.spring.cloud.helloservice.dto.User;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.openfeign.FeignClient;

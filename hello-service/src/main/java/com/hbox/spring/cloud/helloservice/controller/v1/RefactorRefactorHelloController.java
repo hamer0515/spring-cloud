@@ -5,7 +5,6 @@ import com.hbox.spring.cloud.helloservice.service.v1.RefactorHelloService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("v1")
 public class RefactorRefactorHelloController implements RefactorHelloService {
 
     @Override

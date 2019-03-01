@@ -1,6 +1,6 @@
-package com.hbox.spring.cloud.apigateway.service.v1.fallback;
+package com.hbox.spring.cloud.configserver.service.v1.fallback;
 
-import com.hbox.spring.cloud.apigateway.service.v1.HelloService;
+import com.hbox.spring.cloud.configserver.service.v1.HelloService;
 import com.hbox.spring.cloud.helloservice.dto.User;
 import org.springframework.stereotype.Component;
 

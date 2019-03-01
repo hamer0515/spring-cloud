@@ -1,6 +1,6 @@
-package com.hbox.spring.cloud.apigateway.controller.v1;
+package com.hbox.spring.cloud.configserver.controller.v1;
 
-import com.hbox.spring.cloud.apigateway.service.v1.HelloService;
+import com.hbox.spring.cloud.configserver.service.v1.HelloService;
 import com.hbox.spring.cloud.helloservice.dto.User;
 import com.hbox.spring.cloud.helloservice.service.v1.RefactorHelloService;
 import org.springframework.beans.factory.annotation.Autowired;

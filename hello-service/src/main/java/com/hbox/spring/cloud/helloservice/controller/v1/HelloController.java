@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Random;
 
 @RestController
-@RequestMapping("v1")
+@RequestMapping("/v1")
 public class HelloController {
 
     private Logger logger = LoggerFactory.getLogger(getClass());

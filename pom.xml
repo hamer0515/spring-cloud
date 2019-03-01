@@ -31,6 +31,7 @@
         <module>turbine</module>
         <module>feign-consumer</module>
         <module>api-gateway</module>
+        <module>config-server</module>
     </modules>
 
     <dependencies>
@@ -81,8 +82,9 @@
                     <repository>${docker.image.prefix}/${project.artifactId}</repository>
                     <tag>${project.version}</tag>
                     <buildArgs>
-                        <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                        <JAR_FILE>${project.name}/target/${project.build.finalName}.jar</JAR_FILE>
                     </buildArgs>
+                    <contextDirectory>../</contextDirectory>
                 </configuration>
             </plugin>
         </plugins>
